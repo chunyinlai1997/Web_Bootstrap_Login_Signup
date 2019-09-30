@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Sign Up</title>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/banner.jpg);">
+					<span class="login100-form-title-1">
+						Sign Up
+					</span>
+					<span class="login100-form-title-2">
+						Gabriel & David Car Wash
+					</span>
+				</div>
+				<!--alert is here-->
+				<div class="container p-3">
+					<div class="row justify-content-md-center">
+						<div th:if="${param.error}" class="col col-lg-10">
+							<div class="alert alert-danger">
+								Error here
+							</div>
+						</div>
+					</div>
+				</div>
+				
+
+				<form th:action="@{/login}" method="post" class="login100-form validate-form">
+					<div class="m-b-26">
+						Fill in the form the become member now
+					</div>
+
+					<div class="validate-input m-b-18">
+						<span>Basic Info</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Email is required">
+						<span class="label-input100">Email</span>
+						<input class="input100" type="text" name="email" placeholder="Enter email *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="singup-pass" id="singup-pass" placeholder="Enter password *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password does not match">
+						<span class="label-input100">Confirm Password</span>
+						<input class="input100" type="password" name="confirm-pass" placeholder="Confirm password *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "First name is required">
+						<span class="label-input100">First Name</span>
+						<input class="input100" type="text" name="firstname" placeholder="Enter first name *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Last name is required">
+						<span class="label-input100">Last Name</span>
+						<input class="input100" type="text" name="firstname" placeholder="Enter last name *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Home address is required">
+						<span class="label-input100">Home Address</span>
+						<input class="input100" type="text" name="address" placeholder="Enter address *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="validate-input m-b-18">
+						<span>Phone Numbers</span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Mobile phone is required">
+						<span class="label-input100">Mobile</span>
+						<input class="input100" type="text" name="mobile-phone" placeholder="Enter mobile phone number *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 m-b-18">
+						<span class="label-input100">Home</span>
+						<input class="input100" type="tel" name="home-phone" placeholder="Enter home phone number (optional)">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 m-b-18">
+						<span class="label-input100">Work</span>
+						<input class="input100" type="tel" name="work-phone" placeholder="Enter work phone number (optional)">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="validate-input m-b-18">
+						<span>Car Info</span>
+					</div>
+					
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Car Name is required">
+						<span class="label-input100">Car Name</span>
+						<input class="input100" type="text" name="car1-name" placeholder="Enter name of Car 1 *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Plate Number is required">
+						<span class="label-input100">Plate Number</span>
+						<input class="input100" type="text" name="car1-platenumber" placeholder="Enter plate number of Car 1 *">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Car type is required">
+						<span class="label-input100">Car type</span>
+						<select id="car1-cartype" class="form-control input100" name="car1-cartype">
+							<option selected>Choose a car type*</option>
+							<option>Hatchback</option>
+							<option>Sedan</option>
+							<option>SUV</option>
+						</select>
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="validate-input m-b-18">
+						<small>* is required</small>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Sign Up
+						</button>
+					</div>
+					<div class="flex-sb-m w-full p-2">
+						<div>
+							<a href="login.html" class="txt1">
+								Already signed up?
+							</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/select2/select2.min.js"></script>
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script src="js/main.js"></script>
+
+</body>
+</html>

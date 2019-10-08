@@ -34,6 +34,41 @@
         });
     });
     
+    $("#chooseDate").change(function(){
+        var date = $('#chooseDate').val();
+        
+        $.ajax({
+            url:"/time/get",
+            method:"GET",
+            data:{date},
+            dataType: 'application/json; charset=utf-8',
+            success:function(result){
+                alert(result);
+                if (result) {
+                    var slot = $.parseJSON(result);
+                    if(slot.availableTime.length > 0){
+                        $.each(slot.availableTime, function(i, time) {
+                            $('#time-option').append($('<option>', {
+                                text: time
+                            }));
+                        });
+                    }
+                    else{
+                        $('#time-option').append($('<option>', {
+                            text: 'No available timeslot!'
+                        }));
+                    }
+                }
+                else{
+                    $('#time-option').append($('<option>', {
+                        text: 'ERROR, please try againQ'
+                    }));
+                }
+            }
+        });
+    });
+      
+
     function validate (input) {
         if($(input).attr('type') == 'email' || $(input).attr('name') == 'email') {
             if($(input).val().trim().match(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) == null) {
@@ -52,6 +87,21 @@
         }
         else if($(input).attr('name') == 'car1-cartype' ) {
             if($(input).val() == "Choose a car type*") {
+                return false;
+            }
+        }
+        else if($(input).attr('name') == 'carType' ) {
+            if($(input).val() == "Choose a car type*") {
+                return false;
+            }
+        }
+        else if($(input).attr('name') == 'carOption' ) {
+            if($(input).val() == "Choose a car wash option*") {
+                return false;
+            }
+        }
+        else if($(input).attr('name') == 'time' ) {
+            if($(input).val() == "Choose a time slot*") {
                 return false;
             }
         }

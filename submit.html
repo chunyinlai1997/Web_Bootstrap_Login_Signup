@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Make an appointment</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div class="limiter">
+	<div class="container-login100">
+		<div class="wrap-login100">
+			<div class="login100-form-title" style="background-image: url(images/banner.jpg);">
+					<span class="login100-form-title-1">
+						Make an appointment
+					</span>
+				<span class="login100-form-title-2">
+						Gabriel & David Car Wash
+					</span>
+			</div>
+			<!--alert is here-->
+			<div class="container p-3">
+				<div class="row justify-content-md-center">
+					<div th:if="${alertStatus}" class="col col-lg-10">
+						<div class="alert alert-danger", th:text="${alert}">
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<form th:action="@{/doSubmit}" method="post" class="login100-form validate-form">
+
+				<div class="wrap-input100 validate-input m-b-18" data-validate = "Car type is required">
+					<span class="label-input100">Car type</span>
+					<select id="car-type" class="form-control input100" name="carType">
+						<option selected>Choose a car type*</option>
+						<option>Hatchback</option>
+						<option>Sedan</option>
+						<option>SUV</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-18" data-validate = "Option is required">
+					<span class="label-input100">Option</span>
+					<select id="carwash-option" class="form-control input100" name="carOption">
+						<option selected>Choose a car wash option*</option>
+						<option>Wash outside only $15</option>
+						<option>Wash inside and outside $25</option>
+						<option>Deluxe wash $30</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-18" data-validate = "Date is required">
+					<span class="label-input100">Date</span>
+					<input class="input100" type="date" name="date" id="chooseDate" />
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-18" data-validate = "Time Slot is required">
+					<span class="label-input100">Time</span>
+					<select id="time-option" class="form-control input100" name="time">
+						<option selected>Choose a time slot*</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+					<span class="label-input100">Comment</span>
+					<textarea class="form-control rounded-3" name="comment" id="comment" placeholder="Special instructions" rows="3" style="padding: 0 5px;"></textarea>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="validate-input m-b-18">
+					<small>* is required</small>
+				</div>
+
+				<div class="container-login100-form-btn">
+					<button class="login100-form-btn">
+						Submit
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="vendor/animsition/js/animsition.min.js"></script>
+<script src="vendor/bootstrap/js/popper.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="vendor/select2/select2.min.js"></script>
+<script src="vendor/daterangepicker/moment.min.js"></script>
+<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<script src="vendor/countdowntime/countdowntime.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+</html>
